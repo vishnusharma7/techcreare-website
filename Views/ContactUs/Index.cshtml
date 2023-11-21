@@ -1,0 +1,190 @@
+﻿@using static System.Net.WebRequestMethods;
+
+@model EmailParam
+<link href="~/bundles/site.min0f3c.css" rel="stylesheet" />
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<style>
+    .input-validation-error {
+        border-color: red;
+    }
+</style>
+<body>
+    <div class="grid-section">
+        <div>
+            <div class="row clearfix ">
+                <div class="col-md-12 column">
+                    <div>
+
+                        <section class="stick-header contact-banner mb-200"
+                                 style="background-image: url(../media/contact-bg.png);">
+                            <div class="container">
+                                <div class="row sec-in">
+                                    <div class="col-12 col-lg-6 col-xxl-5 left">
+                                        <div class="left-in">
+                                            <div class="content fs-81 fs-30">
+                                                <h1>Contact Us</h1>
+                                                <h3>
+                                                    Fill up the form and our Team will get back to you as soon as
+                                                    possible.
+                                                </h3>
+                                            </div>
+                                            <div class="bottom-text">
+                                                <p><span><strong>Inquiry:</strong></span></p>
+                                                <p><a href="mailto:info@techcreare.com">info@techcreare.com</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6 col-xxl-7 right">
+                                        <div class="forn-wrap">
+                                            @using (Html.BeginForm(actionName: "SendEmail", controllerName: "Email", method: FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                            {
+                                                @*<form id="ConatctUsForm" enctype="multipart/form-data" class="mb-0"
+                                            action="#" method="post" onsubmit="submitUser()">*@
+                                                <div class="global-title text-left">
+                                                    <h2>Get in Touch</h2>
+                                                </div>
+                                                <div asp-validation-summary="All" class="text-danger"></div>
+
+                                                <div class="col-12">
+                                                    <label class="control-label col-md-2"> First Name </label>
+                                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control",@required="required", @name="FirstName", @id="FirstName", @placeholder="First Name*" } })
+                                                   
+                                                    @*<input type="text" for="FirstName" class="form-control" required
+                                                name="FirstName" id="FirstName" placeholder="First Name*">*@
+
+                                                </div>
+                                                <div class="col-12">
+                                                    <label class="control-label col-md-2"> Last  Name </label>
+                                                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control",@required="required",@name="LastName", @id="LastName", @placeholder="Last Name*" } })
+                                                    @* <input type="text" for="LastName" class="form-control"
+                                                name="LastName" id="LastName" placeholder="Last Name*">*@
+                                                </div>
+                                                <div class="col-12">
+                                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2"  })
+                                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control",@required="required",@name="Email", @id="Email", @placeholder="Email Address*" } })
+                                                    @*<input type="email" for="Email" class="form-control"
+                                                name="Email" id="Email" placeholder="Email Address*">*@
+                                                </div>
+                                                <div class="col-12">
+                                                    <label class="control-label col-md-2"> Contact No </label>
+                                                    @Html.EditorFor(model => model.ContactNo, new { htmlAttributes = new { @class = "form-control",@required="required", @name="ContactNo", @id="phone", @placeholder="Phone Number" } })
+                                                    @* <input type="number" for="ContactNo" class="form-control"
+                                                name="ContactNo" id="ContactNo" placeholder="Phone Number">*@
+
+                                                </div>
+                                                <div class="col-12">
+                                                    @Html.LabelFor(model => model.Message, htmlAttributes: new { @class = "control-label col-md-2"  })
+                                                    @Html.EditorFor(model => model.Message, new { htmlAttributes = new { @class = "form-control",@required="required", @type="textarea",@rows="10",  @name="Message", @id="Message",@placeholder="Description" } })
+                                                    @* <textarea class="form-control" for="Message" name="Message"
+                                                id="Message" rows="3" placeholder="Description"></textarea>*@
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="attachinput">
+                                                        <label for="Myfile">Attach Documents</label>
+                                                        @* @Html.LabelFor(model => model.myfile, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                                        @*@Html.EditorFor(model => model.Myfile, new { htmlAttributes = new { @class = "form-control",@required="required", @type="file" , @name="Myfile" , @id="Myfile", @accept=".pdf,.msword,.doc,.docx,.rtf"  }})*@
+                                                        @Html.EditorFor(model => model.Myfile, new { @type = "file" ,@accept=".pdf,.doc,.docx,.rtf", @multiple="multiple" , @name="Myfile", @id="Myfile" ,@required="required", })
+                                                    
+                                                        @if (TempData["invalidAttachment"] != null)
+                                                        {
+                                                            <div style="color:red"; class="alert alert-danger" role="alert">
+                                                                <p> @TempData["invalidAttachment"] </p>
+                                                            </div>
+                                                        }
+                                                        @Html.ValidationMessageFor(model => model.Myfile)
+                                                        @* <input type="file" name="Myfile" id="Myfile" accept=".pdf,.doc,.docx,.rtf" multiple="multiple" />*@
+
+                                                    </div>
+                                                </div>
+
+
+                                                <input type="hidden" id="recaptcha" name="recaptcha" />
+
+                                                <!-- <script src="https://www.google.com/recaptcha/api.js?render=6LcfB00fAAAAAH0iTIRHL0ySYIOR73DqWXvtfmQp"></script>
+                                                <script>
+                                                    grecaptcha.ready(function () {
+                                                        grecaptcha.execute('6LcfB00fAAAAAH0iTIRHL0ySYIOR73DqWXvtfmQp').then(function (token) {
+                                                            document.getElementById("recaptcha").value = token;
+                                                        });
+                                                    });
+                                                </script> -->
+
+                                                <span id="ErrorMessage" class="text-danger"></span>
+                                                <div class="btn-wrap mb-0">
+                                                    <button type="submit" id="ContactUsSubmit"
+                                                            class="btn primary-btn ">
+                                                        Submit
+                                                    </button>
+                                                </div>
+                                                <input name="__RequestVerificationToken" type="hidden"
+                                                       value="CfDJ8LE_Ol4-amZEvl4lPK03vCeiuEUQOE0eD6oqJCdGpxCY_gx75DyNZMjFblvPTagwnhMzY0dLWh7rzyoQOB7LJe-NQBO6qAsviDGRua2xZr34c2Oeb3MhEEH7LGC7B1c0FENp7Cb01XCm76lnKtFtVdU" />
+                                                @*</form>*@
+                                            }
+                                            @*<div>
+
+                                            <img src ="@Model.Myfile"/>
+
+                                            </div>*@
+                                            <div id="SuccessMessage"
+                                                 class="thk-msg fs-35 text-center d-none m-auto">
+                                                <h3>Thank you!</h3>
+                                                <div class="para">
+                                                    <p>
+                                                        Thank you for contacting us, One of our representatives will
+                                                        be in touch with you soon.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+@*<script>
+    function submitUser() {
+        if (!$("#ConatctUsForm").valid())
+            return;
+        const user = {
+            firstName: $("#FirstName").val(),
+            lastName: $("#LastName").val(),
+            email: $("#Email").val(),
+            contactNo: $("#ContactNo").val(),
+            message: $("#Message").val(),
+           myfile: $("#myfile").val()
+        }
+
+        $.ajax({
+            type: "POST",
+            //url: "https://localhost:7100/ContactUs/Index",
+
+            url: "https://techcreare/TechCreare/api/Email ",
+
+            data: JSON.stringify(user),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            success: function (data) {
+                alert('Success');
+            },
+            error: function () {
+                alert('Error')
+            }
+        });
+    }
+</script>*@

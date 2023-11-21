@@ -1,0 +1,157 @@
+﻿<div class="w-100 d-flex flex-wrap">
+    <div class="left-side bg-primary" data-aos="fade-up" data-aos-delay="600">
+        <h4>Contact Information</h4>
+        <p>
+            Fill up the form and our Team will get back to you within 24
+            hours.
+        </p>
+        <div class="contact-detail">
+            <div class="each-detail">
+                <div class="icon">
+                    <img src="../../media/call-icon.svg" alt="Call Icon" loading="lazy" />
+                </div>
+                <p><a href="tel:+917043112253">+91 70431 12253</a></p>
+            </div>
+            <div class="each-detail">
+                <div class="icon">
+                    <img src="../../media/email-icon.svg" alt="Email Icon" loading="lazy" />
+                </div>
+                <p>
+                    <a href="mailto:info@techcreare.com">info@techcreare.com</a>
+                </p>
+            </div>
+            <div class="each-detail">
+                <div class="icon">
+                    <img src="../../media/location-icon.svg" alt="Location Icon"
+                         loading="lazy" />
+                </div>
+                <p>
+                    1207/343 &amp; 1207/1/343/1, 9 th MAIN, 7 th SECTOR , HSR LAYOUT,<br />
+                    BANGALORE, KARNATAKA 560102
+                </p>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/techcreare" target="_blank">
+                <img src="../../media/facebook.svg" alt="Facebook" loading="lazy" />
+            </a>
+            <a href="https://twitter.com/techcreare" target="_blank">
+                <img src="../../media/twitter.svg" alt="Twitter" loading="lazy" />
+            </a>
+            <a href="https://www.instagram.com/techcreare/" target="_blank">
+                <img src="../../media/instagram.svg" alt="Instagram" loading="lazy" />
+            </a>
+            <a href="https://www.linkedin.com/company/techcreare" target="_blank">
+                <img src="../../media/linked-in.svg" alt="Linked In" loading="lazy" />
+            </a>
+        </div>
+    </div>
+    <div class="right-side" data-aos="fade-up" data-aos-delay="600">
+
+
+        <form id="ConatctUsForm">
+            <div class=row>
+                <input type="hidden" id="AdminEmail" name="AdminEmail" value="info@techcreare.com" />
+                <input type="hidden" id="UserEmailSubject" name="UserEmailSubject" value="Thank you" />
+                <input type="hidden" id="AdminEmailSubject" name="AdminEmailSubject" value="Contact Inquiry from website" />
+                <input type="hidden" name="Id" for="Id" />
+                <input type="hidden" name="IPAddress" id="IPAddress" />
+                <input type="hidden" name="Type" id="Type" />
+                <input type="hidden" name="Country" id="Country" />
+                <input type="hidden" name="City" id="City" />
+                <input type="hidden" name="Postal" id="Postal" />
+                <input type="hidden" name="TimeZoneId" id="TimeZoneId" />
+                <input type="hidden" name="TimeZoneAbbreviation" id="TimeZoneAbbreviation" />
+                <input type="hidden" name="TimeZoneCurrent_time" id="TimeZoneCurrent_time" />
+                <input type="hidden" name="TimeZoneName" id="TimeZoneName" />
+                <input type="hidden" name="User_agentHeader" id="User_agentHeader" />
+                <input type="hidden" name="User_agentName" id="User_agentName" />
+                <input type="hidden" name="User_agentType" id="User_agentType" />
+                <input type="hidden" name="User_agentVersion" id="User_agentVersion" />
+                <div class="col-lg-6 col-md-6 col-12">
+                    <label for="FirstName" class="form-label">First Name <i class="error">*</i></label>
+                    <input type="text" for="FirstName" class="form-control" name="FirstName" id="FirstName" placeholder="First Name">
+
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <label for="LastName" class="form-label">Last Name <i class="error">*</i></label>
+                    <input type="text" for="LastName" class="form-control" name="LastName" id="LastName" placeholder="Last Name">
+
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <label for="Email" class="form-label">Email Address <i class="error">*</i></label>
+                    <input type="email" for="Email" class="form-control" name="Email" id="Email" placeholder="alex@gmail.com">
+
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <label for="ContactNo" class="form-label">Contact Number <i class="error">*</i></label>
+                    <input type="number" for="ContactNo" class="form-control" name="ContactNo" id="ContactNo" placeholder="+91 123456789">
+
+                </div>
+                <div class="col-12">
+                    <label for="Message" class="form-label">
+                        Message <i class="error">*</i>
+                    </label>
+                    <textarea class="form-control" for="Message" name="Message" id="Message" rows="3" placeholder="write your message"></textarea>
+                </div>
+
+                <input type="hidden" id="recaptcha" name="recaptcha" />
+
+                <script src="https://www.google.com/recaptcha/api.js?render=6LcfB00fAAAAAH0iTIRHL0ySYIOR73DqWXvtfmQp"></script>
+                <script>
+                    grecaptcha.ready(function () {
+                        grecaptcha.execute('6LcfB00fAAAAAH0iTIRHL0ySYIOR73DqWXvtfmQp').then(function (token) {
+                            document.getElementById("recaptcha").value = token;
+                        });
+                    });
+                </script>
+
+                <span id="ErrorMessage" class="text-danger"></span>
+            </div>
+            <button type="submit" id="ContactUsSubmit" class="btn primary-btn m-auto ">Submit</button>
+
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8LE_Ol4-amZEvl4lPK03vCfVkl1FJJqUopG4vnruTAVmCrd59gmC5PRfp20b9HtICsG1BYyCWvSB-HZWG6M6csKZpA3aUyak-nJ1Ul9g8h4lYfOEoEnMnMv_qdd2i2IB8uwVkyiwJgktX52XKKb9EbE" />
+        </form>
+        <div id="SuccessMessage" class="thk-msg fs-35 text-center d-none m-auto">
+            <h3>Thank You!</h3>
+            <div class="subtitle">Thank for contacting us,</div>
+            <div class="para">
+                <p>One of our representatives will be in touch with you shortly.</p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<div class="sales-team w-100">
+    <div class="row">
+        <div class="col-xl-4 col-lg-5 col-md-12">
+            <div class="fit-height" data-aos="fade-down" data-aos-delay="600">
+                <div class="global-title text-left">
+                    <h5>What&#x27;s Next?</h5>
+                </div>
+                <p>One of our Account Managers will contact you shortly.</p>
+            </div>
+        </div>
+        <div class="col-xl-8 col-lg-7 col-md-12">
+            <div class="row justify-content-center justify-content-lg-start">
+                <div class="col-xl-3 col-lg-4 col-md-3 col-6">
+                    <div class="each-member" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+                        <div class="image-wrap">
+                            <img src="" alt="Rukaiyya" loading="lazy" />
+                        </div>
+                        <p class="e-name">Rukaiyya</p>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-4 col-md-3 col-6">
+                    <div class="each-member" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300">
+                        <div class="image-wrap">
+                            <img src="" alt="Nakkiya" loading="lazy" />
+                        </div>
+                        <p class="e-name">Nakkiya</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

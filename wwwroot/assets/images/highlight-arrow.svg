@@ -1,0 +1,12 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 59" width="45" height="59">
+	<title>Group 1819</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: none;stroke: #aace88;stroke-width: 2 } 
+		.shp1 { fill: #aace88 } 
+	</style>
+	<g id="Group 1819">
+		<path id="Polygon 14" class="shp0" d="M45 29.5L0 59L0 0L45 29.5Z" />
+		<path id="Polygon 15" class="shp1" d="M33 29.5L0 52L0 7L33 29.5Z" />
+	</g>
+</svg>

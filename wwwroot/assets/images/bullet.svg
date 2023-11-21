@@ -1,0 +1,10 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="18" height="18">
+	<title>Path 14</title>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #20a7dd } 
+		.shp1 { fill: #fafafa } 
+	</style>
+	<path id="Path 14" class="shp0" d="M9 0C4.04 0 0 4.04 0 9C0 13.96 4.04 18 9 18C13.96 18 18 13.96 18 9C18 4.04 13.96 0 9 0Z" />
+	<path id="Path 15" class="shp1" d="M13.56 7.09L8.69 11.97C8.54 12.11 8.35 12.19 8.16 12.19C7.96 12.19 7.77 12.11 7.63 11.97L5.19 9.53C4.9 9.24 4.9 8.76 5.19 8.47C5.48 8.18 5.96 8.18 6.25 8.47L8.16 10.38L12.5 6.03C12.79 5.74 13.27 5.74 13.56 6.03C13.85 6.33 13.85 6.8 13.56 7.09Z" />
+</svg>
